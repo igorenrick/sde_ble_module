@@ -7,6 +7,8 @@
 #define CONFIG        0
 #define PIN_CE        8
 
+#define _BV(bit) (1 << (bit))
+
 // COMMANDS
 #define FLUSH_TX      0xE1
 #define FLUSH_RX      0xE2

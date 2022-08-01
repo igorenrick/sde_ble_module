@@ -1,18 +1,23 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/igorenrick/Desktop/sde_ble_module'
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/igorenrick/Área de Trabalho/sde_ble_module'
 mkdir -p build/
 /usr/bin/X11/arm-none-eabi-gcc  -mcpu=cortex-m3 -mthumb -c -fno-common -fmessage-length=0 -Wall -fno-exceptions -ffunction-sections -fdata-sections -g  -DTARGET_LPC1769 -DTOOLCHAIN_GCC_ARM -DNDEBUG -D__CORTEX_M3 -std=gnu99   -I. -I./LPC1768  -o build/digital.o digital.c
 mkdir -p build/
 /usr/bin/X11/arm-none-eabi-gcc  -mcpu=cortex-m3 -mthumb -c -fno-common -fmessage-length=0 -Wall -fno-exceptions -ffunction-sections -fdata-sections -g  -DTARGET_LPC1769 -DTOOLCHAIN_GCC_ARM -DNDEBUG -D__CORTEX_M3 -std=gnu99   -I. -I./LPC1768  -o build/spi.o spi.c
+mkdir -p build/
+/usr/bin/X11/arm-none-eabi-gcc  -mcpu=cortex-m3 -mthumb -c -fno-common -fmessage-length=0 -Wall -fno-exceptions -ffunction-sections -fdata-sections -g  -DTARGET_LPC1769 -DTOOLCHAIN_GCC_ARM -DNDEBUG -D__CORTEX_M3 -std=gnu99   -I. -I./LPC1768  -o build/system_LPC17xx.o system_LPC17xx.c
+mkdir -p build/
+/usr/bin/X11/arm-none-eabi-gcc  -mcpu=cortex-m3 -mthumb -c -fno-common -fmessage-length=0 -Wall -fno-exceptions -ffunction-sections -fdata-sections -g  -DTARGET_LPC1769 -DTOOLCHAIN_GCC_ARM -DNDEBUG -D__CORTEX_M3 -std=gnu99   -I. -I./LPC1768  -o build/startup_LPC17xx.o startup_LPC17xx.c
 mkdir -p build/
 /usr/bin/X11/arm-none-eabi-gcc  -mcpu=cortex-m3 -mthumb -c -fno-common -fmessage-length=0 -Wall -fno-exceptions -ffunction-sections -fdata-sections -g  -DTARGET_LPC1769 -DTOOLCHAIN_GCC_ARM -DNDEBUG -D__CORTEX_M3 -std=gnu99   -I. -I./LPC1768  -o build/main.o main.c
 mkdir -p build/
 /usr/bin/X11/arm-none-eabi-gcc  -mcpu=cortex-m3 -mthumb -c -fno-common -fmessage-length=0 -Wall -fno-exceptions -ffunction-sections -fdata-sections -g  -DTARGET_LPC1769 -DTOOLCHAIN_GCC_ARM -DNDEBUG -D__CORTEX_M3 -std=gnu99   -I. -I./LPC1768  -o build/delay.o delay.c
 mkdir -p build/
 /usr/bin/X11/arm-none-eabi-gcc  -mcpu=cortex-m3 -mthumb -c -fno-common -fmessage-length=0 -Wall -fno-exceptions -ffunction-sections -fdata-sections -g  -DTARGET_LPC1769 -DTOOLCHAIN_GCC_ARM -DNDEBUG -D__CORTEX_M3 -std=gnu99   -I. -I./LPC1768  -o build/nrf24.o nrf24.c
+/usr/bin/X11/arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wl,--gc-sections,-Map=main.map,--cref  -T./LPC1768/LPC1768.ld  -o main.elf build/digital.o build/spi.o build/system_LPC17xx.o build/startup_LPC17xx.o build/main.o build/delay.o build/nrf24.o  -lc -lgcc -lnosys  -lc -lgcc -lnosys
 gcc nxpsum.c -std=c99 -o nxpsum
-make: Leaving directory `/Users/igorenrick/Desktop/sde_ble_module'
+/usr/bin/X11/arm-none-eabi-objcopy -O binary main.elf main.bin
+# Compute nxp checksum on .bin file here
+./nxpsum main.bin
+make: Leaving directory '/home/igorenrick/Área de Trabalho/sde_ble_module'
  
-make: *** No rule to make target `system_LPC17xx.o', needed by `main.elf'.
-make: *** No rule to make target `startup_LPC17xx.o', needed by `main.elf'.
-

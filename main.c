@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdint.h>
-#include <nrf24.h>`
+#include <nrf24.h>
 #include "delay.h"
 
 // transmitter 0 | receiver 1
@@ -25,7 +25,7 @@ void receiver_mode() {
   printf("Received: %s\n",(char *)buffer);
 }
 
-void main() {
+int main() {
   printf("Config BLE\n");
   nrf24_config();
   printf("Running BLE\n");
@@ -44,4 +44,5 @@ void main() {
       receiver_mode();
     }
   }
+  return 0;
 }
