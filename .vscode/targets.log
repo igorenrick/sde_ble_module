@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `digital.o', needed by `main.elf'.  Stop.
 
 
-# Make data base, printed on Sun Jul 31 17:04:12 2022
+# Make data base, printed on Mon Aug  1 14:23:27 2022
 
 # Variables
 
@@ -99,7 +99,7 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
-PLATFORMIO_PATH = /Users/igorenrick/.platformio/penv/bin:/Users/igorenrick/.platformio/penv:/Users/igorenrick/.platformio/python3/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/igorenrick/.pub-cache/bin:/Users/igorenrick/Documents/Flutter/flutter/bin
+PLATFORMIO_PATH = /Users/igorenrick/.platformio/python3/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/igorenrick/.pub-cache/bin:/Users/igorenrick/Documents/Flutter/flutter/bin
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -127,7 +127,6 @@ CPU = -mcpu=cortex-m3 -mthumb
 # makefile (from `Makefile', line 8)
 LINKER_SCRIPT = ./LPC1768/LPC1768.ld
 # default
- 
 MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
 # default
 .VARIABLES := 
@@ -188,7 +187,7 @@ OBJECTS = digital.o spi.o system_LPC17xx.o startup_LPC17xx.o main.o delay.o nrf2
 # environment
 LANG = C
 # environment
-VSCODE_PID = 46320
+VSCODE_PID = 7451
 # variable set hash-table stats:
 # Load=87/1024=8%, Rehash=0, Collisions=6/117=5%
 
@@ -198,9 +197,9 @@ VSCODE_PID = 46320
 
 # Directories
 
-# . (device 16777234, inode 21031610): 14 files, no impossibilities.
+# . (device 16777234, inode 21031610): 18 files, no impossibilities.
 
-# 14 files, no impossibilities in 1 directories.
+# 18 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -282,6 +281,7 @@ digital.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
 #  commands to execute (from `Makefile', line 42):
 	mkdir -p $(BUILD_DIR)
 	$(CPP) $(CC_FLAGS) $(CC_SYMBOLS) -std=gnu++98 $(INCLUDE_PATHS) -o $(addprefix $(BUILD_DIR), $@) $<
@@ -368,6 +368,6 @@ install:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sun Jul 31 17:04:12 2022
+# Finished Make data base on Mon Aug  1 14:23:27 2022
 
  
